@@ -1,0 +1,14 @@
+<launch>
+
+    <!-- HARDWARE -->
+    <node pkg="rosserial_server" type="serial_node" name="rosserial_server">
+        <rosparam>
+      port: /dev/ttyUSB0
+      require:
+        publishers: [ cmd_vel,cmd/led_strip/color ]
+        subscribers: [ power/status/pwm/right, power/status/pwm/left, power/status/speed/angular/right, power/status/speed/angular/left,power/status/speed/rpm/right,power/status/speed/rpm/left,power/status/distance/ticks/left,power/status/distance/ticks/right ]
+        </rosparam>
+    </node>
+
+
+</launch>
