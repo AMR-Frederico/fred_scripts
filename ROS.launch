@@ -10,5 +10,9 @@
         </rosparam>
     </node>
 
+    <include file="$(find fred_teleop)/launch/fred_teleop.launch" />
+
+    <include file="$(find fred_move_base)/launch/safe_twist.launch" />
+
 
 </launch>
