@@ -14,7 +14,7 @@
         <rosparam>
       port: /dev/ttyUSB0
       require:
-        publishers: [ ,cmd/led_strip/color]
+        publishers: [ cmd/led_strip/color]
         subscribers: [sensor/ultrasonic/left/distance,sensor/ultrasonic/middle/distance,sensor/ultrasonic/right/distance,sensor/imu/yaw]
         </rosparam>
     </node>
