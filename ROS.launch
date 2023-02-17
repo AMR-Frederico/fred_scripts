@@ -18,11 +18,21 @@
         subscribers: [sensor/ultrasonic/left/distance,sensor/ultrasonic/middle/distance,sensor/ultrasonic/right/distance,sensor/imu/yaw]
         </rosparam>
     </node>
-
+    
+    <node pkg="rosserial_server" type="serial_node" name="rosserial_server_ctr">
+        <rosparam>
+      port: /dev/ttyUSB2
+      require:
+        publishers: [ joy/controler/connected, joy/controler/ps4/battery,joy/controler/ps4/break,joy/controler/ps4/cmd_vel/angular, joy/controler/ps4/cmd_vel/linear]
+        subscribers: []
+        </rosparam>
+    </node>
     <!-- <include file="$(find fred_teleop)/launch/fred_teleop.launch" /> -->
 
     <include file="$(find fred_move_base)/launch/safe_twist.launch" /> 
     <include file="$(find fred_move_base)/launch/odom.launch" />
+
+    <include file"$(find fred_machine_state)/launch/machine_state.launch" /> 
 
     <!-- <include file="$(find fred_hardware_interface)/launch/interface.launch" /> -->
 
