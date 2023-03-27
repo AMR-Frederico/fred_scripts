@@ -3,7 +3,7 @@
     <!-- HARDWARE
     <node pkg="rosserial_server" type="serial_node" name="rosserial_server_pot">
         <rosparam>
-      port: /dev/ttyUSB1
+      port: /dev/ttyUSB2
       require:
         publishers:  [ cmd_vel/safe, cmd/rpm]
         subscribers: [ power/status/pwm/right,            power/status/pwm/left, 
@@ -28,7 +28,7 @@
     
     <node pkg="rosserial_server" type="serial_node" name="rosserial_server_ctr">
         <rosparam>
-      port: /dev/ttyUSB2
+      port: /dev/ttyUSB1
       require:
         publishers: [ joy/controler/connected,          joy/controler/ps4/battery,
                       joy/controler/ps4/break,          joy/controler/ps4/cmd_vel/angular, 
