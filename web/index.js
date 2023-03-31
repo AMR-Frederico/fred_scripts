@@ -18,38 +18,38 @@ $(document).ready(function(){
   });
 
   initializeTopics();
-  displayCurrentSpeed();
+  display_ticks();
 
 });
 
 // Variáveis globais
 var ros;
 var speed_controller;
-var point_cloud_controller;
+var sensor_ticks_left;
+var sensor_ticks_right;
 
-function sendMessage() {
-  
-  console.log("Connection established!!");
 
-  var message = new ROSLIB.Message({
-    data: 1.0
-  });
-  
-  point_cloud_controller.publish(message);
-}
 
 function initializeTopics() {
 
-  point_cloud_controller = new ROSLIB.Topic({
+  sensor_ticks_left = new ROSLIB.Topic({
     ros: ros,
-    name: '/point_cloud_controller',
+    name: '/power/status/distance/ticks/left',
     messageType: 'std_msgs/Float32'
   });
 
+  sensor_ticks_right = new ROSLIB.Topic({
+    ros: ros,
+    name: '/power/status/distance/ticks/right',
+    messageType: 'std_msgs/Float32'
+  });
+
+  
   speed_controller = new ROSLIB.Topic({
     ros: ros,
     name: "/control/position/x",
     messageType: 'std_msgs/Float64'
   });
+
 
 }
