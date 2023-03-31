@@ -1,7 +1,7 @@
 <launch>
 
-    <!-- HARDWARE
-    <node pkg="rosserial_server" type="serial_node" name="rosserial_server_pot">
+    <!-- HARDWARE -->
+    <!-- <node pkg="rosserial_server" type="serial_node" name="rosserial_server_pot">
         <rosparam>
       port: /dev/ttyUSB2
       require:
@@ -21,8 +21,8 @@
       port: /dev/ttyUSB0
       require:
         publishers:  [cmd/led_strip/color]
-        subscribers: [sensor/ultrasonic/left/distance,    sensor/ultrasonic/middle/distance,
-                      sensor/ultrasonic/right/distance,   sensor/imu/yaw]
+        subscribers: [sensor/range/ultrasonic/left,    sensor/range/ultrasonic/right,
+                      sensor/range/ultrasonic/back,    sensor/orientation/imu]       
         </rosparam>
     </node>
     
