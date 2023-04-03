@@ -1,1 +1,3 @@
 sudo apt-get install ros-noetic-rosserial-server
+sudo apt-get install ros-noetic-rosbridge-server
+

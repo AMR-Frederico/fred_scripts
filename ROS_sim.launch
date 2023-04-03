@@ -44,6 +44,10 @@
 
     <include file="$(find fred_machine_states)/launch/machine_state.launch" />  
 
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" > 
+     <arg name="port" value="9090"/>
+    </include>
+
     <!-- <include file="$(find fred_hardware_interface)/launch/interface.launch" /> -->
 
 
