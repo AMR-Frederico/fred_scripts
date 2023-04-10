@@ -1,4 +1,5 @@
 #/bin/bash
-killall roslaunch
-killall python3
+sudo killall roslaunch
+sudo killall python3
+sleep 15
 echo "Terminated"
