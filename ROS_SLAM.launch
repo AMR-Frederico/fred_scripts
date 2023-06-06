@@ -37,6 +37,9 @@
         subscribers: []
         </rosparam>
     </node>
+   <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0 0 0 0 0 0 base_link laser 100"/>
+
+   <include file="$(find rplidar_ros)/launch/fred_rplidar.launch" /> 
 
     <include file="$(find fred_move_base)/launch/safe_twist.launch" /> 
     <include file="$(find fred_move_base)/launch/odom.launch" />
@@ -50,7 +53,7 @@
 
     <include file="$(find fred_status_monitor)/launch/temp_monitor.launch" />
 
-    <!-- <include file="$(find hector_mapping)/launch/hector_mapping.launch" /> -->
+    <include file="$(find hector_mapping)/launch/mapping_fred.launch" />
 
     <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" > 
      <arg name="port" value="9090"/>

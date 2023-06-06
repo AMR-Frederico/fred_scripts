@@ -1,3 +1,4 @@
 sudo apt-get install ros-noetic-rosserial-server
 sudo apt-get install ros-noetic-rosbridge-server
+sudo apt-get install ros-noetic-robot-localization
 
