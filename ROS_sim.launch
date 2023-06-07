@@ -3,7 +3,7 @@
     <!-- HARDWARE -->
     <!-- <node pkg="rosserial_server" type="serial_node" name="rosserial_server_pot">
         <rosparam>
-      port: /dev/ttyUSB2
+      port: /dev/ttyUSB1
       require:
         publishers:  [ cmd_vel/safe, cmd/rpm]
         subscribers: [ power/status/pwm/right,            power/status/pwm/left, 
@@ -28,7 +28,7 @@
     
     <node pkg="rosserial_server" type="serial_node" name="rosserial_server_ctr">
         <rosparam>
-      port: /dev/ttyUSB1
+      port: /dev/ttyUSB3
       require:
         publishers: [ joy/controler/connected,          joy/controler/ps4/battery,
                       joy/controler/ps4/break,          joy/controler/ps4/cmd_vel/angular, 
@@ -42,11 +42,20 @@
     <include file="$(find fred_move_base)/launch/odom.launch" />
     <include file="$(find fred_move_base)/launch/position_pid.launch" />
 
-    <include file="$(find fred_machine_states)/launch/machine_state.launch" />  
+    <include file="$(find fred_machine_states)/launch/machine_state.launch" /> 
+
+    <include file="$(find fred_tf)/launch/tf.launch" />
+
+    <include file="$(find fred_goal_manager)/launch/goal_manager.launch" />
+
+    <!-- <include file="$(find fred_status_monitor)/launch/temp_monitor.launch" /> -->
+
+    <!-- <include file="$(find hector_mapping)/launch/hector_mapping.launch" /> -->
 
     <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" > 
      <arg name="port" value="9090"/>
     </include>
+  
 
     <!-- <include file="$(find fred_hardware_interface)/launch/interface.launch" /> -->
 
