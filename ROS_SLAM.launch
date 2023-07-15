@@ -3,7 +3,7 @@
     <!-- HARDWARE -->
     <node pkg="rosserial_server" type="serial_node" name="rosserial_server_pot">
         <rosparam>
-      port: /dev/ttyUSB1
+      port: /dev/esp32_pot
       require:
         publishers:  [ cmd_vel/safe, cmd/rpm]
         subscribers: [ power/status/pwm/right,            power/status/pwm/left, 
@@ -18,7 +18,7 @@
 
     <node pkg="rosserial_server" type="serial_node" name="rosserial_server_sens">
         <rosparam>  
-      port: /dev/ttyUSB0
+      port: /dev/esp32_sens
       require:
         publishers:  [cmd/led_strip/color]
         subscribers: [sensor/range/ultrasonic/left,    sensor/range/ultrasonic/right,
@@ -28,7 +28,7 @@
     
     <node pkg="rosserial_server" type="serial_node" name="rosserial_server_ctr">
         <rosparam>
-      port: /dev/ttyUSB3
+      port: /dev/esp32_ctl
       require:
         publishers: [ joy/controler/connected,          joy/controler/ps4/battery,
                       joy/controler/ps4/break,          joy/controler/ps4/cmd_vel/angular, 
