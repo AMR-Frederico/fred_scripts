@@ -1,54 +1,28 @@
 <launch>
 
     <!-- HARDWARE -->
-    <node pkg="rosserial_server" type="serial_node" name="rosserial_server_pot">
-        <rosparam>
-      port: /dev/esp32_pot
-      require:
-        publishers:  [ cmd_vel/safe, cmd/rpm]
-        subscribers: [ power/status/pwm/right,            power/status/pwm/left, 
-                       power/status/speed/angular/right,  power/status/speed/angular/left,
-                       power/status/speed/rpm/right,      power/status/speed/rpm/left,
-                       power/status/distance/ticks/left,  power/status/distance/ticks/right,
-                       power/status/seted/speed/rpm/left, power/status/seted/speed/rpm/right,
-                       power/status/debug/controler/rpm,  power/status/debug/pwm ]
-        </rosparam>
-    </node>
+    <include file="$(find fred_serial)/launch/rosserial_esp.launch" />
 
 
-    <node pkg="rosserial_server" type="serial_node" name="rosserial_server_sens">
-        <rosparam>  
-      port: /dev/esp32_sens
-      require:
-        publishers:  [cmd/led_strip/color]
-        subscribers: [sensor/range/ultrasonic/left,    sensor/range/ultrasonic/right,
-                      sensor/range/ultrasonic/back,    sensor/orientation/imu]       
-        </rosparam>
-    </node>
-    
-    <node pkg="rosserial_server" type="serial_node" name="rosserial_server_ctr">
-        <rosparam>
-      port: /dev/esp32_ctl
-      require:
-        publishers: [ joy/controler/connected,          joy/controler/ps4/battery,
-                      joy/controler/ps4/break,          joy/controler/ps4/cmd_vel/angular, 
-                      joy/controler/ps4/cmd_vel/linear, joy/controler/ps4/circle,
-                      joy/controler/ps4/cross,          joy/controler/ps4/triangle]
-        subscribers: []
-        </rosparam>
-    </node>
-
+    <!-- SAFE TWIST -->
     <include file="$(find fred_move_base)/launch/safe_twist.launch" /> 
     <include file="$(find fred_move_base)/launch/odom.launch" />
-
+    <include file="$(find fred_move_base)/launch/position_pid.launch" />
+    
+    <!-- SPLINE GENERATOR -->
     <include file="$(find fred_spline_generator)/launch/spline_generator_with_init_points.launch" />
 
-    <include file="$(find fred_move_base)/launch/position_pid.launch" />
-
+    <!-- MACHINE STATES -->
     <include file="$(find fred_machine_states)/launch/machine_state.launch" /> 
 
+    <!-- TF -->
     <include file="$(find fred_tf)/launch/tf.launch" />
 
+    <!-- NAVIGATION -->
+    <include file="$(find fred_navigation)/launch/fred_navigation.launch" />
+
+
+    <!-- GOAL MANAGER -->
     <include file="$(find fred_goal_manager)/launch/goal_manager.launch" />
 
     <!-- <include file="$(find fred_status_monitor)/launch/temp_monitor.launch" /> -->
