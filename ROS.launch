@@ -10,7 +10,7 @@
     <include file="$(find fred_move_base)/launch/position_pid.launch" />
     
     <!-- SPLINE GENERATOR -->
-    <include file="$(find fred_spline_generator)/launch/spline_generator_with_init_points.launch" />
+    <!-- <include file="$(find fred_spline_generator)/launch/spline_generator_with_init_points.launch" /> -->
 
     <!-- MACHINE STATES -->
     <include file="$(find fred_machine_states)/launch/machine_state.launch" /> 
@@ -19,7 +19,7 @@
     <include file="$(find fred_tf)/launch/tf.launch" />
 
     <!-- NAVIGATION -->
-    <include file="$(find fred_navigation)/launch/fred_navigation.launch" />
+    <!-- <include file="$(find fred_navigation)/launch/fred_navigation.launch" /> -->
 
 
     <!-- GOAL MANAGER -->
